@@ -581,7 +581,7 @@ After the reboot we will see this on our grub menu:
 
 Choosing the upgrade tool will start the upgrade, so let's go!
 ##### Wait... what?!
-![1st-boot](images/1st boot.PNG)
+![2nd-boot](images/2nd.PNG)
 ##### Something went wrong
 Let's wait for it to finish and review the results:
 ```bash
@@ -712,7 +712,7 @@ Broadcast message from root@localhost
 The system is going down for reboot NOW!
 ```
 ##### We got this.
-![1st-boot](images/newgrub.PNG)
+![3rd-boot](images/newgrub.PNG)
 When the system boots back up, login, and in cases where the afterUpgrade.sh script failed to run, execute the command manually:
 ```bash
 rpm -Uvh /data/upgrade/postrpm/*.rpm --nodeps --replacefiles --replacepkgs --oldpackage >> /var/log/upgrade.log 2>&1
