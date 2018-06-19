@@ -8,9 +8,9 @@ By making use of any information on this website, you agree to the following:All
 
 BackBox specifically `DISCLAIMS LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES` and assumes no responsibility or liability for any loss or damage suffered by any person as a result of the use or misuse of any of the information or content on this website. Concept2 assumes or undertakes NO LIABILITY for any loss or damage suffered as a result of the use, misuse or reliance on the information and content on this website.
 
-###**USE AT YOUR OWN RISK**
+### **USE AT YOUR OWN RISK**
 This is for informational purposes only. 
-##Back your system up!
+## Back your system up!
 Since our system is probably vastly different from yours it would be foolish to try thing without preparing a proper backup of your setup.
 
 We suggest creating a copy of your setup as a virtual machine and taking snapshots between the steps demonstrated in this guide.
