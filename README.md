@@ -713,6 +713,7 @@ The system is going down for reboot NOW!
 ```
 ##### We got this.
 ![3rd-boot](images/newgrub.PNG)
+
 When the system boots back up, login, and in cases where the afterUpgrade.sh script failed to run, execute the command manually:
 ```bash
 rpm -Uvh /data/upgrade/postrpm/*.rpm --nodeps --replacefiles --replacepkgs --oldpackage >> /var/log/upgrade.log 2>&1
