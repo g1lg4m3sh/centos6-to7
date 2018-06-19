@@ -1,8 +1,8 @@
+![N|Solid](images/logo.png)
 # How we upgraded our BackBox CentOS 6 to CentOS 7
 
-One of the challenges every organization faces is the the lack of capability to do an in place upgrade of CentOS 6.x to CentOS 7. At the moment, the only official method of upgrading major versions of CentOS is to wipe and reinstall everything. Having said that, there were always processes you could follow with varying levels of success (based on straying from the official repositories and how customized your setup and package list was). We have run through this process now with a 99% success rate, `on our systems`, with over a hundred successful upgrades, so let’s break everything down.
+>One of the challenges every organization faces is the the lack of capability to do an in place upgrade of CentOS 6.x to CentOS 7. At the moment, the only official method of upgrading major versions of CentOS is to wipe and reinstall everything. Having said that, there were always processes you could follow with varying levels of success (based on straying from the official repositories and how customized your setup and package list was). We have run through this process now with a 99% success rate, `on our systems`, with over a hundred successful upgrades, so let’s break everything down.
 
-Let's get the obvious stuff out of the way:
 ## Disclaimer
 By making use of any information on this website, you agree to the following:All of the information provided here is provided "AS-IS" and with `NO WARRANTIES`. No express or implied warranties of any type, including for example implied warranties of merchantability or fitness for a particular purpose, are made with respect to the information, or any use of the information, on this site. BackBox makes no representations and extends no warranties of any type as to the accuracy or completeness of any information or content on this website.
 
@@ -35,7 +35,7 @@ error: Failed dependencies:
         pkgconfig(libxml-2.0) is needed by preupgrade-assistant-1.0.2-33.0.3.el6.centos.x86_64
         pkgconfig(libxslt) is needed by preupgrade-assistant-1.0.2-33.0.3.el6.centos.x86_64
 ```
-After resolving the dependency issues we'll install everything using yum to make sure we don't miss anything:
+##### After resolving the dependency issues we'll install everything using yum to make sure we don't miss anything:
 ```bash
 [root@localhost upgrade]# yum localinstall *.rpm --disablerepo=*
 Loaded plugins: fastestmirror, presto
@@ -243,7 +243,7 @@ Installed:
 Complete!
 
 ```
-Let's try running the upgrade tool and inspect the results:
+##### Let's try running the upgrade tool and inspect the results:
 ```bash
 [root@localhost upgrade]# echo y | preupg -s CentOS6_7
 Preupg tool doesn't do the actual upgrade.
@@ -517,18 +517,18 @@ INPLACERISK: SLIGHT: /usr/lib64/python2.6/site-packages/svn is not owned by any 
 INPLACERISK: SLIGHT: System account "backupserver" uses id 0 in prohibited range without reservation - potential migration issue!
 Continue with the upgrade [Y/N]?
 ```
-A huge list of things to do.
+##### A huge list of things to do.
 For the sake of the guide I'll continue:
 ```bash
 Continue with the upgrade [Y/N]? Y
 Invalid distribution: BackBox version
 ```
-Woopsie daisy, something ain't right:
+##### Woopsie daisy, something ain't right:
 ```bash
 echo 'CentOS release 6' > /etc/redhat-release
 echo 'CentOS release 6' > /etc/centos-release
 ```
-Let's go again:
+##### Let's go again:
 ```bash
 [root@localhost data]# redhat-upgrade-tool --network 7.2 --instrepo http://vault.centos.org/centos/7.2.1511/os/x86_64/
 ...
@@ -555,7 +555,7 @@ insufficient disk space:
 As we can see, we didn't have enough space under boot for the new kernel and grub2 so I'll clear up some space and
 `I'll take a snapshot of this VM before we go on, I suggest you do the same.`
 
-Now that we cleared some space under boot and taken a snapshot we can continue:
+##### Now that we cleared some space under boot and taken a snapshot we can continue:
 ```bash
 [root@localhost data]# redhat-upgrade-tool --network 7.2 --instrepo http://vault.centos.org/centos/7.2.1511/os/x86_64/
 ...
@@ -576,7 +576,7 @@ Broadcast message from root@localhost
 
 The system is going down for reboot NOW!
 ```
-After the reboot we will see this on our grub menu:
+##### After the reboot we will see this on our grub menu:
 ![1st-boot](images/grub.png)
 
 Choosing the upgrade tool will start the upgrade, so let's go!
@@ -599,7 +599,7 @@ required to run yum.
 ...
 ```
 Seems like we were upgraded, but we lost our network interfaces, some python modules and yum.
-##### Revert the snapshot
+#### Revert the snapshot
 Let's see what we can do about this:
 ```bash
 [root@localhost ~]# cd /root/preupgrade
