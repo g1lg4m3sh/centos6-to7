@@ -467,7 +467,7 @@ Read the file /root/preupgrade/result.html for more details.
 Upload results to UI by command:
 e.g. preupg -u http://127.0.0.1:8099/submit/ -r /root/preupgrade-results/preupg_results-*.tar.gz .
 ```
-As you can see, we have some things to care care of. Let's head over to the root directory and see what we find.
+As you can see, we have some things to take care of. Let's head over to the root directory and see what we find.
 ```bash
 [root@localhost ~]# cd /root/
 [root@localhost ~]# ls
@@ -744,6 +744,10 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 [root@localhost ~]# uname -a
 Linux localhost 3.10.0-693.17.1.el7.x86_64 #1 SMP Thu Jan 25 20:13:58 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+
+[root@localhost ~]# cat /etc/redhat-release
+CentOS Linux release 7.4.1708 (Core)
+
 ``` 
 A case can be made to automate the above, like we did internally, and so far we didn't encounter any issues with any of the production systems we upgraded this way (100 approx).
 ##### If anything goes wrong
@@ -752,3 +756,7 @@ Record the terminal\console screen and see which package breaks the upgrade and 
 `REMEMBER, do this in a test environment, at your own risk!`
 
 If you have any questions, feel free to contact us!
+
+## Author
+
+* **Yaron Agami** - DevOps, Software & Security Engineer @BackBoxSoftware - [BackBox Software LTD](https://www.backbox.com)
