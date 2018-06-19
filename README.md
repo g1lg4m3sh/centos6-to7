@@ -21,17 +21,8 @@ We're going to need a few things to do this.
 1. The infamous redhat upgrade tool
 1. Patience
 
-## 1. Lets prepare the ISO
-First you need to copy all needed content from the CentOS DVD to your local folders.
-##### Get the ISO on your designated 'to be upgraded' machine and copy to a local directory:
-```bash
-mkdir -p /mnt/iso
-mount -o loop /tmp/CentOS-7.iso /mnt
-cp -fr /mnt /mnt/iso/
-```
 ##### You will need access to all the RPMs that you installed (along with all their dependencies). These should be located on your install media
-Get the comps.xml file from repodata. This file is named with a unique hex string for each release. In our example, it is called 436345f4b666f0a461d479ccfabc2c22823d4f2173c2653e5250fea62f0afe98-c7-x86_64-comps.xml.gz. gunzip it so that you have comps.xml.
-##### Next comes the most challenging part — compiling the RPMs and resolving dependencies.
+##### This is the most challenging part — compiling the RPMs and resolving dependencies.
 Download the redhat upgrade tool and place it on your machine.
 ```bash
 [root@localhost upgrade]# ls
